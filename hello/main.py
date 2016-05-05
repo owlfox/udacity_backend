@@ -15,10 +15,17 @@
 # limitations under the License.
 #
 import webapp2
-
+form="""
+<form action="http://www.google.com/search">
+<!--By default, the form submit to itself if we're not setting action -->
+<input name="q"></input>
+<input type="submit"></input>
+<!-- q=better+filght+search if we type in "better flight search"-->
+</form>
+"""
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+        self.response.write(form)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
