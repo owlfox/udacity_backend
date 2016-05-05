@@ -16,7 +16,7 @@
 #
 import webapp2
 form="""
-<form action="http://www.google.com/search">
+<form action="/testform">
 <!--By default, the form submit to itself if we're not setting action -->
 <input name="q"></input>
 <input type="submit"></input>
@@ -28,6 +28,14 @@ class MainHandler(webapp2.RequestHandler):
         #self.response.headers['Content-Type'] = 'text/plain'
         self.response.write(form)
 
+class TestHandler(webapp2.RequestHandler):
+    def get(self):
+        # q = self.request.get("q")
+        # self.response.write(q)
+        self.response.headers['Content-Type'] = 'text/plain'
+        self.response.write(self.request)
+
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/testform', TestHandler)
 ], debug=True)
