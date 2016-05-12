@@ -29,7 +29,7 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(form)
 
 class TestHandler(webapp2.RequestHandler):
-    def get(self):
+    def post(self):
         # q = self.request.get("q")
         # self.response.write(q)
         # this returns plain text
