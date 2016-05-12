@@ -16,7 +16,7 @@
 #
 import webapp2
 form="""
-<form action="/testform">
+<form method="post" action="/testform">
 <!--By default, the form submit to itself if we're not setting action -->
 <input name="q"></input>
 <input type="submit"></input>
@@ -32,6 +32,7 @@ class TestHandler(webapp2.RequestHandler):
     def get(self):
         # q = self.request.get("q")
         # self.response.write(q)
+        # this returns plain text
         self.response.headers['Content-Type'] = 'text/plain'
         self.response.write(self.request)
 
