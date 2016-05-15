@@ -17,13 +17,14 @@
 import logging
 import webapp2
 from valid import *
+from escape import *
 form="""
 <form method="post">
     Whas is your birthday?
     <br>
     <label>
         Month
-        <input type="text" name="month" value=""%(month)s"">
+        <input type="text" name="month" value="%(month)s">
     </label>
     <label>
         Day
@@ -41,8 +42,8 @@ form="""
 </form>
 """
 class MainHandler(webapp2.RequestHandler):
-    def writeform(self, error="", year="", day="", month=""):
-        self.response.write(form % {"error":error, "month":month, "year":year, "day":day})
+    def writeform(self, error="", day="", month="", year="",):
+        self.response.write(form % {"error":error, "month":escape_html(month), "year":escape_html(year), "day":escape_html(day)})
 
     def get(self):
         #self.response.headers['Content-Type'] = 'text/plain'
@@ -58,17 +59,17 @@ class MainHandler(webapp2.RequestHandler):
         user_day    = self.request.get('day')
         user_year   = self.request.get('year')
         month = valid_month(user_month)
-        day = valid_month(user_day)
-        year = valid_month(user_year)
+        day = valid_day(user_day)
+        year = valid_year(user_year)
 
         if not (day and month and year):
-            self.writeform("Hey wtf are you entering!!(badass server)")
-            self.response.write(user_day)
-            self.response.write(user_month)
-            self.response.write(user_year)
+            self.writeform("Hey wtf are you entering!!(badass server)", user_day, user_month, user_year)
         else:
-            self.response.writeform("Thanks, that might be a good day to born.")
+            self.redirect("/thanks")
 
+class ThanksHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('Thanks for being a nice user.')
 
 
 class TestHandler(webapp2.RequestHandler):
@@ -81,5 +82,6 @@ class TestHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/testform', TestHandler)
+    ('/testform', TestHandler),
+    ('/thanks', ThanksHandler),
 ], debug=True)
