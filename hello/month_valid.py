@@ -25,14 +25,13 @@ months = ['January',
           'November',
           'December']
 
-month_abbvs = [m[:3] for m in months]
+month_abbvs = dict((m[:3].lower(),m) for m in months)
 
 def valid_month(month):
     """
     Simply use https://docs.python.org/2/library/string.html#string.capitalize
     """
-    caped_month = string.capitalize(month)
-    return caped_month if caped_month in months+month_abbvs else None
+    return month_abbvs.get(month[:3].lower()) # pretty neat!
 
 print(valid_month("january")) # => "January"
 print(valid_month("January")) # => "January"
