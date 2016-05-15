@@ -11,6 +11,7 @@
 #
 from __future__ import print_function
 from valid import *
+import logging
 
 months = ['January',
           'February',
@@ -74,13 +75,12 @@ def valid_day(day):
     >>> valid_day('foo') is None
     True
     >>> valid_day(10)
-    10
+    '10'
     """
-    if type(day) is str:
-        if day.isdigit():
+    day = str(day)
+    if day and day.isdigit():
             day = int(day)
-    if day and type(day) is int:
-        return  day if day<32 and day>0 else None
+            return  str(day) if day<32 and day>0 else None
     else:
         return None
 
@@ -110,20 +110,23 @@ def valid_year(year):
     >>> valid_year('-11') is None
     True
     >>> valid_year('1950')
-    1950
+    '1950'
     >>> valid_year('2000')
-    2000
+    '2000'
     >>> valid_year(1999)
-    1999
+    '1999'
     >>> valid_year('foo') is None
     True
     >>> valid_year('10') is None
     True
     """
-    if year:
-        if type(year) is str:
-            year = int(year) if year.isdigit() else None
-        return year if 2020 > year > 1900 else None
+    year = str(year)
+    if year and year.isdigit():
+        year = int(year)
+        return str(year) if 2020 > year > 1900 else None
+    else:
+        return None
+
 
 
 
