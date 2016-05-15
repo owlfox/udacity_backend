@@ -39,10 +39,18 @@ class Handler(webapp2.RequestHandler):
 class MainHandler(Handler):
     def get(self):
         n = self.request.get('n')
-        if n:
-            n = int(n)
+        n = n and int(n)
         self.render("shopping_list.html", n=n)
-        
 
-app = webapp2.WSGIApplication([('/', MainHandler),
+class FizzBuzzHandler(Handler):
+    def get(self):
+        n = self.request.get('n')
+        n = n and int(n)
+        self.render("fizzbuzz.html", n=n)
+
+
+
+app = webapp2.WSGIApplication([
+                                ('/', MainHandler),
+                                ('/fizzbuzz', FizzBuzzHandler)
                                 ], debug=True)
