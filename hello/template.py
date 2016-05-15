@@ -5,7 +5,7 @@ import jinja2
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 
 # jinja will look for template files from the template_dir
-jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir))
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape=True)
 
 hidden_html = """
 <input type="hidden" name="food" value="%s">
