@@ -16,11 +16,15 @@
 #
 import webapp2
 form="""
-<form method="post" action="/testform">
-<!--By default, the form submit to itself if we're not setting action -->
-<input name="q"></input>
+<form method="post">
+    Whas is your birthday?
+    <br>
+    <input type="text" name="month">
+    <input type="text" name="day">
+    <input type="text" name="year">
+    <br>
+    <br>
 <input type="submit"></input>
-<!-- q=better+filght+search if we type in "better flight search"-->
 </form>
 """
 class MainHandler(webapp2.RequestHandler):
