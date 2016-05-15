@@ -38,9 +38,8 @@ class Handler(webapp2.RequestHandler):
 
 class MainHandler(Handler):
     def get(self):
-        n = self.request.get('n')
-        n = n and int(n)
-        self.render("shopping_list.html", n=n)
+        items = self.request.get_all('food')
+        self.render("shopping_list.html", items=items)
 
 class FizzBuzzHandler(Handler):
     def get(self):
