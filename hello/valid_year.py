@@ -24,13 +24,13 @@ def valid_year(year):
     2000
     >>> valid_year('foo') is None
     True
-    >>> valid_year('10')
-    10
+    >>> valid_year('10') is None
+    True
     """
     if year:
         if type(year) is str:
             year = int(year) if year.isdigit() else None
-        return year if year > 0 else None
+        return year if 2020 > year > 1900 else None
 
 
 
