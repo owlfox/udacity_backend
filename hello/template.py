@@ -38,6 +38,7 @@ class Handler(webapp2.RequestHandler):
 
 class MainHandler(Handler):
     def get(self):
+        n = self.request.get('n')
         self.render("shopping_list.html", name="Michael")
         # output = form_html
         # output_hidden = ""
