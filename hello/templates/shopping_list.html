@@ -16,6 +16,7 @@
         <ul>
             {% for item in items %}
                 <li> {{item}} </li>
+                <!--Do this only if you trust your user <li> {{item | safe}} </li> -->
             {% endfor %}
         </ul>
     {% endif %}
