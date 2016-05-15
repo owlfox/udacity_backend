@@ -9,6 +9,7 @@
 # the name of the month with the first letter
 # capitalized.
 #
+from __future__ import print_function
 import string
 
 months = ['January',
@@ -24,18 +25,19 @@ months = ['January',
           'November',
           'December']
 
+month_abbvs = [m[:3] for m in months]
+
 def valid_month(month):
     """
     Simply use https://docs.python.org/2/library/string.html#string.capitalize
     """
     caped_month = string.capitalize(month)
-    return caped_month if caped_month in months else None
+    return caped_month if caped_month in months+month_abbvs else None
 
-print valid_month("january")
-# => "January"
-print valid_month("January")
-# => "January"
-print valid_month("foo")
-# => None
-print valid_month("")
-# => None
+print(valid_month("january")) # => "January"
+print(valid_month("January")) # => "January"
+print(valid_month("foo"))        # => None
+print(valid_month("")) # => None
+print(valid_month("Jan")) # => "Jan"
+print(valid_month("Dec")) # => "Dec"
+print(valid_month("Dec")) # => "dec"
