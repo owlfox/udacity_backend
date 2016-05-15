@@ -1,11 +1,11 @@
 <form>
     <h2> Add a Food</h2>
-    <input type="text" name="food">
+    <input type="text" name="n">
     <button>Add</button>
+
+    <ul>
+        {% for x in range(1, n+1) %}
+            <li> {{ x**2}} </li>
+        {% endfor %}
+    </ul>
 </form>
-<!-- Conditional expressions in jinja -->
-    {% if n == 1 %}
-        n equals 1
-    {% else %}
-        n is not 1
-    {% endif %}

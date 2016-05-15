@@ -39,23 +39,10 @@ class Handler(webapp2.RequestHandler):
 class MainHandler(Handler):
     def get(self):
         n = self.request.get('n')
-        self.render("shopping_list.html", name="Michael")
-        # output = form_html
-        # output_hidden = ""
-        #
-        #
-        # items = self.request.get_all("food")
-        #
-        # if items:
-        #     output_items = ""
-        #     for item in items:
-        #         output_hidden += hidden_html % item
-        #         output_items += item_html % item
-        #
-        #         output_shopping = shopping_list_html % output_items
-        #         output += output_shopping
-        #
-        # self.write(output % output_hidden)
+        if n:
+            n = int(n)
+        self.render("shopping_list.html", n=n)
+        
 
 app = webapp2.WSGIApplication([('/', MainHandler),
                                 ], debug=True)
