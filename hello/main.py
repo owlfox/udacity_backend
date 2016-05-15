@@ -32,6 +32,9 @@ class MainHandler(webapp2.RequestHandler):
         #self.response.headers['Content-Type'] = 'text/plain'
         self.response.write(form)
 
+    def post(self):
+        self.response.write("Thanks, that might be a good day to born.")
+
 class TestHandler(webapp2.RequestHandler):
     def post(self):
         # q = self.request.get("q")
