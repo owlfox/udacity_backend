@@ -47,9 +47,19 @@ class FizzBuzzHandler(Handler):
         n = n and int(n)
         self.render("fizzbuzz.html", n=n)
 
+class Rot13Handler(Handler):
+    def __init__(self):
+        self.text=""
+        
+    def post(self):
+        text = self.request.get('text')
 
+
+    def get(self):
+        self.render("rot13.html", text=self.text)
 
 app = webapp2.WSGIApplication([
                                 ('/', MainHandler),
-                                ('/fizzbuzz', FizzBuzzHandler)
+                                ('/fizzbuzz', FizzBuzzHandler),
+                                ('/unit2/rot13', Rot13Handler)
                                 ], debug=True)
