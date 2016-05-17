@@ -1,4 +1,9 @@
-# diff between GET and POST in HTTP
+# Prologue
+   This is the notes/codes while taking udacity's backend nano degree. It's a mix of some old materials and looks not so popular. But I do like the style of lecture!
+
+# Build a blog.
+
+## diff between GET and POST in HTTP
 
 1. GET for static contents
     * if you use GET for delete, some web crawler will make things bad.
