@@ -13,3 +13,17 @@
     2. fetching a document
 
 2. POST is not cached, normally it updates something
+
+# About google app engine
+```
+# get sample
+git clone https://github.com/GoogleCloudPlatform/python-docs-samples
+cd python-docs-samples/appengine/standard/hello_world
+# test locally
+dev_appserver.py .
+# go to https://console.cloud.google.com/project?_ga=1.5984115.1185135686.1463291285
+# create a new project or select the existing one
+# upload to GoogleCloudPlatform, v1 for a example version name
+appcfg.py -A <YOUR_PROJECT_ID> -V v1 update .
+
+```
