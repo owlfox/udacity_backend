@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import webapp2
+# use post method for this will reslut a 405 method not exist response code.
 form = """
 <form method="post" action="http://www.google.com/search">
     <!-- If we type in better flight search into input and hit submit,
@@ -27,7 +28,7 @@ class MainPage(webapp2.RequestHandler):
         #self.response.headers['Content-Type'] = 'text/plain'
         self.response.write(form)
 class TestHandler(webapp2.RequestHandler):
-    def get(self):
+    def post(self):
         # q = self.request.get("q")
         # self.response.write(q)
         self.response.headers['Content-Type'] = 'text/plain'
