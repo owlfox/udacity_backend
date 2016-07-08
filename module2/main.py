@@ -14,7 +14,7 @@
 
 import webapp2
 form = """
-<form action="http://www.google.com/search">
+<form method="post" action="http://www.google.com/search">
     <!-- If we type in better flight search into input and hit submit,
     we get better+flight+search for q parameter -->
 <input name="q">
