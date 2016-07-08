@@ -19,6 +19,8 @@ form = """
     <!-- If we type in better flight search into input and hit submit,
     we get better+flight+search for q parameter -->
 <input type="checkbox" name="q">
+<input type="checkbox" name="r">
+<input type="checkbox" name="s">
 <input type="submit">
 </form>
 """
