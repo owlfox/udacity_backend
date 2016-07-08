@@ -15,10 +15,10 @@
 import webapp2
 # use post method for this will reslut a 405 method not exist response code.
 form = """
-<form method="post" action="/test">
+<form>
     <!-- If we type in better flight search into input and hit submit,
     we get better+flight+search for q parameter -->
-<input name="q">
+<input type="password" name="q">
 <input type="submit">
 </form>
 """
