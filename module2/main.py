@@ -18,9 +18,20 @@ form = """
 <form>
     <!-- If we type in better flight search into input and hit submit,
     we get better+flight+search for q parameter -->
-<input type="checkbox" name="q">
-<input type="checkbox" name="r">
-<input type="checkbox" name="s">
+    <lable> one
+        <input type="radio" name="q" value="one">
+    </label>
+    <lable> two
+        <input type="radio" name="q" value="two">
+    </label>
+    <lable> three
+        <input type="radio" name="q" value="three">
+    </label>
+<select name="sel">
+    <option>one</option>
+    <option>two</option>
+    <option>three</option>
+</select>
 <input type="submit">
 </form>
 """
