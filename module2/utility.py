@@ -27,3 +27,34 @@ def sub_m(name, nickname):
     "I'm Goose. My real name is Mike, but my friends call me Goose."
     '''
     return given_string3 % {"name":name, "nickname":nickname}
+
+# > with &gt;
+# < with &lt;
+# " with &quot;
+# & with &amp;
+
+escape_dict = {
+'>':'&gt;',
+'<':'&lt;',
+'"':'&quot;',
+'&':'&amp;',
+}
+def escape_html(s):
+    '''
+    >>> escape_html('>')
+    '&gt;'
+    >>> escape_html('<')
+    '&lt;'
+    >>> escape_html('"')
+    '&quot;'
+    >>> escape_html("&")
+    '&amp;'
+    '''
+    rtn = ""
+    for c in s:
+        esp = escape_dict.get(c)
+        if esp:
+            rtn += esp
+        else:
+            rtn += c
+    return rtn
