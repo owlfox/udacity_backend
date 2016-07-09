@@ -13,6 +13,9 @@
 # limitations under the License.
 
 import webapp2
+from valid_year import *
+from valid_day import *
+from valid_month import *
 # use post method for this will reslut a 405 method not exist response code.
 form = """
 <form method="post">
@@ -34,8 +37,17 @@ What is your birthday?
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        #self.response.headers['Content-Type'] = 'text/plain'
         self.response.write(form)
+    def post(self):
+        user_month = valid_month(self.request.get('month'))
+        user_year = valid_year(self.request.get('year'))
+        user_day = valid_day(self.request.get('day'))
+
+        if not(user_month and user_day and user_year):
+            self.response.write(form)
+        else:
+            self.response.write("Thanks! That's a valid date.")
+
 class TestHandler(webapp2.RequestHandler):
     def post(self):
         # q = self.request.get("q")
