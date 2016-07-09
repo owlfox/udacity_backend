@@ -54,7 +54,14 @@ class MainPage(webapp2.RequestHandler):
         if not(month and day and year):
             self.write_form("Invalid data", user_month, user_day, user_year)
         else:
-            self.response.write("Thanks! That's a valid date.")
+            # redirect for prventing resubmit on page reload
+            #self.response.write("Thanks! That's a valid date.")
+            self.redirect("/thanks")
+
+class ThanksHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/plain'
+        self.response.write("Thanks! That's a valid date.")
 
 class TestHandler(webapp2.RequestHandler):
     def post(self):
@@ -64,5 +71,5 @@ class TestHandler(webapp2.RequestHandler):
         self.response.write(self.request)
 
 app = webapp2.WSGIApplication([
-    ('/', MainPage),('/test', TestHandler)
+    ('/', MainPage),('/test', TestHandler), ('/thanks', ThanksHandler)
 ], debug=True)
