@@ -15,23 +15,19 @@
 import webapp2
 # use post method for this will reslut a 405 method not exist response code.
 form = """
-<form>
-    <!-- If we type in better flight search into input and hit submit,
-    we get better+flight+search for q parameter -->
-    <lable> one
-        <input type="radio" name="q" value="one">
+<form method="post">
+What is your birthday?
+<br>
+    <label> Month
+        <input type="text" name="month">
     </label>
-    <lable> two
-        <input type="radio" name="q" value="two">
+    <label> Day
+    <input type="text" name="day">
     </label>
-    <lable> three
-        <input type="radio" name="q" value="three">
+    <label> Yeat
+    <input type="text" name="year">
     </label>
-<select name="sel">
-    <option value="1">one</option>
-    <option value="2">two</option>
-    <option value="3">three</option>
-</select>
+<br>
 <input type="submit">
 </form>
 """
