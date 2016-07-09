@@ -28,9 +28,9 @@ form = """
         <input type="radio" name="q" value="three">
     </label>
 <select name="sel">
-    <option>one</option>
-    <option>two</option>
-    <option>three</option>
+    <option value="1">one</option>
+    <option value="2">two</option>
+    <option value="3">three</option>
 </select>
 <input type="submit">
 </form>
